@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :genre
+  belongs_to :prefecture
 end

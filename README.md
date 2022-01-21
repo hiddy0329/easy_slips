@@ -16,6 +16,9 @@
 - has_many :clients
 - has_many :slips
 
+- extend ActiveHash::Associations::ActiveRecordExtensions
+- belongs_to :prefecture
+
 ## itemsテーブル
 | Column               | Type       | Options                        |
 | ------               | ---------- | ------------------------------ |
