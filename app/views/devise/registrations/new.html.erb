@@ -1,0 +1,107 @@
+<div class='account-page' id='account-page'>
+  <div class='account-page__inner clearfix'>
+    <div class='account-page__inner--left account-page__header'>
+      <h2>新規会員登録</h2>
+      <h5>フォームに従って会員登録をしてください</h5>
+    </div>
+    <div class='account-page__inner--right user-form'>
+      <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), local: true do |f|%>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <div class='field'>
+          <div class='field-label'>
+            <label class="form-text">会社名・個人事業主名</label>
+            <span class="indispensable">(必須)</span>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :name, autofocus: true%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <label class="form-text">メールアドレス</label>
+            <span class="indispensable">(必須)</span>
+          </div>
+          <div class='field-input'>
+            <%= f.email_field :email%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <label class="form-text">パスワード</label>
+            <span class="indispensable">(必須)</span>
+            <i>(英数字6文字以上)</i>
+          </div>
+          <div class='field-input'>
+            <%= f.password_field :password, autocomplete: "off"%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <label class="form-text">確認用パスワード</label>
+            <span class="indispensable">(必須)</span>
+          </div>
+          <div class='field-input'>
+            <%= f.password_field :password_confirmation, autocomplete: "off"%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <label class="form-text">郵便番号</label>
+            <span class="indispensable">(必須)</span>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :postal_code, class:"input-default", id:"postal-code", placeholder:"例）123-4567", maxlength:"8"%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <label class="form-text">都道府県</label>
+            <span class="indispensable">(必須)</span>
+          </div>
+          <div class='field-input'>
+            <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"})%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <label class="form-text">市区町村</label>
+            <span class="indispensable">(必須)</span>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :city, class:"input-default", id:"city", placeholder:"例）東京都新宿区"%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <label class="form-text">番地</label>
+            <span class="indispensable">(必須)</span>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :address, class:"input-default", id:"address", placeholder:"例）青山1-1-1"%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <label class="form-text">建物名</label>
+            <span class="indispensable">(任意)</span>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :building_name, class:"input-default", id:"building", placeholder:"例) 柳ビル103"%>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <label class="form-text">電話番号</label>
+            <span class="indispensable">(必須)</span>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :phone_number, class:"input-default", id:"phone_number", placeholder:"例）09012345678",maxlength:"11"%>
+          </div>
+        </div>
+        <div class='actions'>
+          <%= f.submit "新規登録", class: 'btn'%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
