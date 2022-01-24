@@ -3,6 +3,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
     create_table :items do |t|
       t.integer :item_number, null:false
       t.string :color,        null:false
+      t.boolean :availability, null:false
       t.timestamps
     end
   end
