@@ -23,6 +23,7 @@
 | ------               | ---------- | ------------------------------ |
 | item_number          | integer    | null: false                    |
 | color                | string     | null: false                    |
+| availability         | boolean    | null: false                    |
 
 ## clientsテーブル
 | Column               | Type       | Options                        |
