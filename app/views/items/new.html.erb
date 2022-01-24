@@ -1,0 +1,27 @@
+<%= form_with model: @form, url: items_path, method: :post, local: true do |form| %>
+  <table>
+    <thead>
+      <tr>
+        <th>品番</th>
+        <th>色</th> 
+      </tr>
+    </thead>
+  </table>
+  <tbody>
+    <%= form.fields_for :items do |f| %>
+      <tr>
+        <td.text-center>
+          <%= f.check_box :availability %>
+        </td.text-center>
+        <td.text-center>
+          <%= f.text_field :item_number %>
+        </td.text-center>
+        <td.text-center>
+          <%= f.text_field :color %>
+        </td.text-center>
+      </tr>
+    <% end %>
+  </tbody>
+  <%= form.submit "一括登録" %>
+  <%= link_to "戻る", :back %>
+<% end %>
