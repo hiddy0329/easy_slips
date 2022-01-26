@@ -12,7 +12,6 @@
 | phone_number         | string     | null: false                    |
 
 ### Association
-- has_many :items
 - has_many :clients
 - has_many :slips
 
@@ -24,10 +23,7 @@
 | ------               | ---------- | ------------------------------ |
 | item_number          | integer    | null: false                    |
 | color                | string     | null: false                    |
-| user_id              | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :user
+| availability         | boolean    | null: false                    |
 
 ## clientsテーブル
 | Column               | Type       | Options                        |

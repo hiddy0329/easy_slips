@@ -1,0 +1,32 @@
+<h1>新規商品登録</h1>
+<form>
+  <%= form_with model: @form, url: items_path, method: :post, local: true do |form| %>
+    <div class="form-row">
+      <%= form.fields_for :items do |f| %>
+        <div class="col-auto">
+          <div class="form-control ">
+            <%= f.check_box :availability %>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-control ">
+            <%= f.text_field :item_number %>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="form-control ">
+            <%= f.text_field :color %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="row gy-2 gx-3 align-items-center">
+      <div class="col ">
+        <%= form.submit "選択した商品を一括登録する" %>
+      </div>
+      <div class="col">
+        <%= link_to "戻る", :back %>
+      </div>
+    </div>
+  <% end %>
+</form>
