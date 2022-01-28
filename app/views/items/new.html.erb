@@ -1,28 +1,23 @@
+<div class="container">
 <h1>新規商品登録</h1>
 <form>
   <%= form_with model: @form, url: items_path, method: :post, local: true do |form| %>
-    <div class="form-row">
       <%= form.fields_for :items do |f| %>
-        <div class="col-auto">
-          <div class="form-control ">
-            <%= f.check_box :availability %>
+        <div class="form-row">
+          <div class="col">
+            <%= f.check_box :availability, class:"form-control" %>
           </div>
-        </div>
-        <div class="col-auto">
-          <div class="form-control ">
-            <%= f.text_field :item_number %>
+          <div class="col">
+            <%= f.text_field :item_number, class:"form-control", placeholder:"品番を入力" %>
           </div>
-        </div>
-        <div class="col-auto">
-          <div class="form-control ">
-            <%= f.text_field :color %>
+          <div class="col">
+          <%= f.text_field :color, class:"form-control", placeholder:"商品の色を入力" %>
           </div>
         </div>
       <% end %>
-    </div>
-    <div class="row gy-2 gx-3 align-items-center">
-      <div class="col ">
-        <%= form.submit "選択した商品を一括登録する" %>
+    <div class="form-row center-block text-center">
+      <div class="col">
+        <%= form.submit "選択した商品を一括登録する"%>
       </div>
       <div class="col">
         <%= link_to "戻る", :back %>
@@ -30,3 +25,4 @@
     </div>
   <% end %>
 </form>
+</div>
