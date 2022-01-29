@@ -22,7 +22,10 @@
 | Column               | Type       | Options                        |
 | ------               | ---------- | ------------------------------ |
 | item_number          | integer    | null: false                    |
+| name                 | string     | null: false                    |
 | color                | string     | null: false                    |
+| price                | integer    | null: false                    |
+| note                 | string     | null: false                    |
 | availability         | boolean    | null: false                    |
 
 ## clientsテーブル
