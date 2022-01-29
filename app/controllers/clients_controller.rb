@@ -8,7 +8,6 @@ class ClientsController < ApplicationController
     if @form.save
       redirect_to new_client_path
     else
-      flash.now[:alert] = "商品登録に失敗しました"
       render :new
     end
 

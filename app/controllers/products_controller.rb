@@ -7,9 +7,8 @@ class ProductsController < ApplicationController
   def create
     @form = Form::ProductCollection.new(product_collection_params)
     if @form.save
-      redirect_to new_product_path, notice: "商品を登録しました"
+      redirect_to new_product_path
     else
-      flash.now[:alert] = "商品登録に失敗しました"
       render :new
     end
 

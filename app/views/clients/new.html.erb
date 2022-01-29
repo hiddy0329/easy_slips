@@ -1,23 +1,22 @@
 <%# <%= render partial:'error_messsages', model: fb.object %> 
 
-<%= form_for(@form, url: clients_path, method: :post) do |fb| %>
 <div class="container">
+<form>
+<%= form_for(@form, url: clients_path, method: :post) do |fb| %>
 <table class="table">
 <thead>
   <tr>
     <th width="80px", class="text-center h3">
     <strong>登録</strong>
     </th>
-    <th>
-    <div class="text-center h3">
+    <th class="text-center h3">
     <strong>取引先名</strong>
-    </div>
     </th>
   </tr>
 </thead>
 <tbody class="registration-form">
 <%= fb.fields_for :clients do |f| %>
-  <tr class="item">
+<tr class="item">
   <td class="text-center">
   <%= f.check_box :availability, class: 'top10 registration-checkbox' %>
   </td>
@@ -28,11 +27,11 @@
 <% end %>
 </tbody>
 </table>
-
 <div class="text-center">
 <%= fb.submit '一括登録', class: 'btn btn-primary' %>
 <%= link_to "戻る", root_path, class: 'btn btn-success' %>
 </div>
-</div>
 
 <% end %>
+</form>
+</div>
