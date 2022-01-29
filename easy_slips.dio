@@ -35,10 +35,13 @@
                     <mxGeometry y="266" width="250" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="14" value="clients" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="402.5" y="280" width="275" height="56" as="geometry"/>
+                    <mxGeometry x="402.5" y="280" width="275" height="86" as="geometry"/>
                 </mxCell>
                 <mxCell id="15" value="・name(string型, NOT NULL)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="14" vertex="1">
                     <mxGeometry y="26" width="275" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="76" value="・availability(boolean型, NOT NULL)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="14">
+                    <mxGeometry y="56" width="275" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="22" value="products" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="370" y="30" width="340" height="206" as="geometry"/>

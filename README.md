@@ -31,6 +31,8 @@
 | Column               | Type       | Options                        |
 | ------               | ---------- | ------------------------------ |
 | name                 | string     | null: false                    |
+| availability         | boolean    | null: false                    |
+
 
 ## slipsテーブル
 | Column               | Type       | Options                        |
