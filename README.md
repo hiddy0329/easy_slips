@@ -12,7 +12,6 @@
 | phone_number         | string     | null: false                    |
 
 ### Association
-- has_many :clients
 - has_many :slips
 
 - extend ActiveHash::Associations::ActiveRecordExtensions
@@ -32,10 +31,8 @@
 | Column               | Type       | Options                        |
 | ------               | ---------- | ------------------------------ |
 | name                 | string     | null: false                    |
-| user_id              | references | null: false, foreign_key: true |
+| availability         | boolean    | null: false                    |
 
-### Association
-- belongs_to :user
 
 ## slipsテーブル
 | Column               | Type       | Options                        |
