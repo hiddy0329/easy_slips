@@ -18,7 +18,7 @@
 - extend ActiveHash::Associations::ActiveRecordExtensions
 - belongs_to :prefecture
 
-## itemsテーブル
+## productsテーブル
 | Column               | Type       | Options                        |
 | ------               | ---------- | ------------------------------ |
 | item_number          | integer    | null: false                    |
