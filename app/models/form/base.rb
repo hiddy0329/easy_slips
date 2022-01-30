@@ -5,3 +5,4 @@ class Form::Base
   include ActiveModel::Validations::Callbacks
 
 end
+

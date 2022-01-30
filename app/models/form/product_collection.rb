@@ -24,3 +24,4 @@ class Form::ProductCollection < Form::Base
       return false
   end
 end
+
