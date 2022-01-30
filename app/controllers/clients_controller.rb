@@ -5,12 +5,9 @@ class ClientsController < ApplicationController
 
   def create
     @form = Form::ClientCollection.new(client_collection_params)
-    if @form.save
-      redirect_to new_client_path
-    else
+    unless @form.save
       render :new
     end
-
   end
 
   private

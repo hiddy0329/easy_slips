@@ -6,9 +6,7 @@ class ProductsController < ApplicationController
 
   def create
     @form = Form::ProductCollection.new(product_collection_params)
-    if @form.save
-      redirect_to new_product_path
-    else
+    unless @form.save
       render :new
     end
 
