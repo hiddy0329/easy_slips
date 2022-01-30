@@ -1,7 +1,8 @@
-<%# <%= render partial:'error_messsages', model: fb.object %> 
-
 <%= form_for(@form, url: products_path, method: :post) do |fb| %>
 <div class="container">
+
+<%# <%= render partial:'error_messsages', model: fb.object %> 
+
 <table class="table">
 <thead>
   <tr>
@@ -38,12 +39,11 @@
 <% end %>
 </tbody>
 </table>
-
 <div class="text-center">
 <%= fb.submit '一括登録', class: 'btn btn-primary' %>
 <%= link_to "戻る", root_path, class: 'btn btn-success' %>
 </div>
 </div>
-
 <% end %>
+
 
