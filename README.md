@@ -37,31 +37,23 @@
 ## slipsテーブル
 | Column               | Type       | Options                        |
 | ------               | ---------- | ------------------------------ |
+| address_name         | string     | null: false                    |
 | slip_number          | integer    | null: false                    |
 | shipping_date        | date       | null: false                    |
-| invoice_number       | integer     | null: false                    |
+| invoice_number       | integer    |                                |
 | user_id              | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
 - has_many :orders
-- has_one :address
 
 ## ordersテーブル
 | Column               | Type       | Options                        |
 | ------               | ---------- | ------------------------------ |
-| order_number         | integer    | null: false                    |
-| color                | string     | null: false                    |
-| count                | integer    | null: false                    |
-| slip_id              | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :slip
-
-## addressesテーブル
-| Column               | Type       | Options                        |
-| ------               | ---------- | ------------------------------ |
-| name                 | string     | null: false                    |
+| order_number         | integer    |                                |
+| color                | string     |                                |
+| count                | integer    |                                |
+| note                 | string     |                                |
 | slip_id              | references | null: false, foreign_key: true |
 
 ### Association
