@@ -1,0 +1,2 @@
+class SlipsController < ApplicationController
+end
