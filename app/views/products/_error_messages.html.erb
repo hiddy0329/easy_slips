@@ -1,9 +1,16 @@
-<% if model.errors.any? %>
-<div class="error-alert">
-  <ul>
-    <% model.errors.full_messages.each do |message| %>
-    <li class='error-message'><%= message %></li>
+<% if @form.products.any? { |product| product.errors.present? } %>
+  <div class="alert alert-danger">
+    <% form.products.each.with_index(1) do |product, idx| %>
+      <% if product.errors.present? %>
+      <ul>
+      <li><%= "#{idx}行目の商品レコードが不正です。" %></li>
+      <ul>
+        <% product.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+      </ul>
+      <% end %>
     <% end %>
-  </ul>
-</div>
+  </div>
 <% end %>
