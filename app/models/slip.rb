@@ -1,11 +1,12 @@
 class Slip < ApplicationRecord
   with_options presence: true do
     validates :address_name
-    validates :slip_number, length: { maximum: 11 }
     validates :shipping_date
+    validates :slip_number, length: { maximum: 11 }
   end
-  validates :user_id, presence: {message: "must exist"}
-  
+
   belongs_to :user
-  has_many :orders
+
+  has_many :orders, dependent: :destroy 
+  accepts_nested_attributes_for :orders, allow_destroy: true
 end

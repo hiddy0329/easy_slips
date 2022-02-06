@@ -1,5 +1,8 @@
 class Order < ApplicationRecord
-  validates :slip_id, presence: {message: "must exist"}
-
+  with_options presence: true do
+    validates :order_number, length: { maximum: 11 }
+    validates :color
+    validates :count
+  end
   belongs_to :slip
 end
