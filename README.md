@@ -27,6 +27,7 @@
 | note                 | string     | null: false                    |
 | availability         | boolean    | null: false                    |
 
+
 ## clientsテーブル
 | Column               | Type       | Options                        |
 | ------               | ---------- | ------------------------------ |
@@ -41,19 +42,20 @@
 | slip_number          | integer    | null: false                    |
 | shipping_date        | date       | null: false                    |
 | invoice_number       | integer    |                                |
-| user_id              | references | null: false, foreign_key: true |
+| user                 | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
 - has_many :orders
 
+
 ## ordersテーブル
 | Column               | Type       | Options                        |
 | ------               | ---------- | ------------------------------ |
-| order_number         | integer    |                                |
-| color                | string     |                                |
-| count                | integer    |                                |
-| note                 | string     |                                |
+| order_number         | integer    | null: false                    |
+| color                | string     | null: false                    |
+| count                | integer    | null: false                    |
+| note                 | string     | null: false                    |
 | slip_id              | references | null: false, foreign_key: true |
 
 ### Association
