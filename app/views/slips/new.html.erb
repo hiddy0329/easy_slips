@@ -1,7 +1,9 @@
 <div class="d-grid gap-5">
 <h2 class="text-center bg-primary text-white">新規伝票作成</h2>
 
-<%= form_with model: @slip, url: slips_path, method: :post do |fb| %>
+<%= form_with model: @slip, url: slips_path, method: :post, local: true do |fb| %>
+
+<%= render partial:'error_messages', model: @slip %> 
 
 <div class="container">
   <div class="row">

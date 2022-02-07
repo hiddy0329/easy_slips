@@ -9,11 +9,8 @@ class SlipsController < ApplicationController
   end
 
   def create
-    binding.pry
     @slip = Slip.new(slip_params)
-    if @slip.save
-      redirect_to root_path
-    else
+    unless @slip.save
       render :new
     end
   end
