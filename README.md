@@ -12,8 +12,6 @@
 | phone_number         | string     | null: false                    |
 
 ### Association
-- has_many :slips
-
 - extend ActiveHash::Associations::ActiveRecordExtensions
 - belongs_to :prefecture
 
@@ -45,7 +43,6 @@
 | user                 | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :user
 - has_many :orders
 
 
