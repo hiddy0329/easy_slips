@@ -1,8 +1,7 @@
+<%= render partial:'error_messages', form: @form %>
+
 <%= form_for(@form, url: products_path, method: :post) do |fb| %>
 <div class="container">
-
-<%# <%= render partial:'error_messsages', model: fb.object %> 
-
 <table class="table">
 <thead>
   <tr>
