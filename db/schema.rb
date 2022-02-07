@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_05_074022) do
+ActiveRecord::Schema.define(version: 2022_02_04_105625) do
 
   create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -20,10 +20,10 @@ ActiveRecord::Schema.define(version: 2022_02_05_074022) do
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "order_number", null: false
-    t.string "color", null: false
-    t.integer "count", null: false
-    t.string "note", null: false
+    t.integer "order_number"
+    t.string "color"
+    t.integer "count"
+    t.string "note", limit: 50
     t.bigint "slip_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -41,33 +41,13 @@ ActiveRecord::Schema.define(version: 2022_02_05_074022) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "slip_clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "slip_id", null: false
-    t.bigint "client_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["client_id"], name: "index_slip_clients_on_client_id"
-    t.index ["slip_id"], name: "index_slip_clients_on_slip_id"
-  end
-
-  create_table "slip_products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "slip_id", null: false
-    t.bigint "product_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["product_id"], name: "index_slip_products_on_product_id"
-    t.index ["slip_id"], name: "index_slip_products_on_slip_id"
-  end
-
   create_table "slips", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "address_name", null: false
     t.integer "slip_number", null: false
     t.date "shipping_date", null: false
     t.integer "invoice_number"
-    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_slips_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -90,9 +70,4 @@ ActiveRecord::Schema.define(version: 2022_02_05_074022) do
   end
 
   add_foreign_key "orders", "slips"
-  add_foreign_key "slip_clients", "clients"
-  add_foreign_key "slip_clients", "slips"
-  add_foreign_key "slip_products", "products"
-  add_foreign_key "slip_products", "slips"
-  add_foreign_key "slips", "users"
 end

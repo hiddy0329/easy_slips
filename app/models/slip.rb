@@ -4,8 +4,7 @@ class Slip < ApplicationRecord
     validates :shipping_date
     validates :slip_number, length: { maximum: 11 }
   end
-
-  belongs_to :user
+  validates :invoice_number, length: { maximum: 11 }
 
   has_many :orders, dependent: :destroy 
   accepts_nested_attributes_for :orders, allow_destroy: true
