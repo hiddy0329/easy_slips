@@ -3,4 +3,5 @@ class Client < ApplicationRecord
     validates :name
     validates :availability, inclusion: { in: [true, false] }
   end
+
 end

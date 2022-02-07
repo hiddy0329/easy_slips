@@ -1,8 +1,9 @@
-<% if @form.errors.any? %>
+<% if @slip.errors.any? %>
 <div class="error-alert">
   <ul>
-    <% @form.errors.full_messages.each do |message| %>
+    <% @slip.errors.full_messages.each do |message| %>
     <li class='error-message'><%= message %></li>
     <% end %>
-  </div>
+  </ul>
+</div>
 <% end %>

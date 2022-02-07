@@ -8,4 +8,5 @@ class Product < ApplicationRecord
   end
 
   validates :note, length: { maximum: 50 }
+
 end
