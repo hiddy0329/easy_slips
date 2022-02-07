@@ -1,35 +1,37 @@
-<div class='account-page' id='account-page'>
-  <div class='account-page__inner clearfix'>
-    <div class='account-page__inner--left account-page__header'>
-      <h2>ログイン</h2>
-      <h5>登録しているユーザーでログイン</h5>
+<div class="container">
+<body class="text-center">
+    
+  <%= form_with model: resource, as: resource_name, url: session_path(resource_name), local: true do |f|%>
+    <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
+    <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+    <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+    </svg>
+
+    <h1 class="h3 mb-3 fw-normal">ログインしてください</h1>
+
+    <div class='text-danger h2'>
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
     </div>
-    <div class='account-page__inner--right user-form'>
-      <%= form_with model: resource, as: resource_name, url: session_path(resource_name), local: true do |f|%>
-        <div class='field'>
-          <div class='field-label'>
-            <label class="form-text">メールアドレス</label>
-            <span class="indispensable">(必須)</span>
-          </div>
-          <div class='field-input'>
-            <%= f.email_field :email, autofocus: true%>
-          </div>
-          <div class='field'>
-            <div class='field-label'>
-              <label class="form-text">パスワード</label>
-              <span class="indispensable">(必須)</span>
-              <i>(半角英数字6文字以上)</i>
-            </div>
-            <div class='field-input'>
-              <%= f.password_field :password, autocomplete: "off"%>
-            </div>
-          </div>
-          <div class='actions'>
-            <%= f.submit "ログイン", class: 'btn btn-primary'%>
-            <%= link_to "戻る", root_path, class: 'btn btn-success' %>
-          </div>
-        </div>
-      <% end %>
+
+    <div class="form-floating mb-3">
+      <%= f.email_field :email, autofocus: true, class:"form-control" %>
+      <label for="floatingInput">メールアドレス</label>
     </div>
-  </div>
+    <div class="form-floating">
+      <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
+      <label for="floatingPassword">パスワード(半角英数字6文字以上)</label>
+    </div>
+
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button class="w-30 btn btn-lg btn-primary" type="submit">ログイン</button>
+    <%= link_to "戻る", root_path, class: 'w-30 btn btn-lg btn-success' %>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+  <% end %>
+
+</body>
 </div>
