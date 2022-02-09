@@ -1,0 +1,48 @@
+<div class='item-contents'>
+    <div class="subtitle" >
+      新規作成伝票
+    </div>
+
+    <ul class='slip-lists'>
+      <% @slips.each do |slip| %>
+        <li class='list'>
+          <div class='slip-info'>
+            <h3 class='address-name'>
+              出荷先：<%= slip.address_name %>
+            </h3>
+            <h3 class='shipping_date'>
+              出荷日：<%= slip.shipping_date %>
+            </h3>
+            <h3 class="slip_number">
+              伝票番号：<%= slip.slip_number %>
+            </h3>
+            <% slip.orders.each do |order| %>
+              <% if order.order_number.present? %>
+                <h4>
+                  品番<%= order.order_number %>
+                </h4>
+              <% end %>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+
+      <li class='list'>
+        <% if @slips.length == 0 %>
+          <%= link_to '#' do %>
+          <div class='item-info'>
+            <h3 class='item-name'>
+              商品を出品してね！
+            </h3>
+            <div class='item-price'>
+              <span>99999999円<br>(税込み)</span>
+              <div class='star-btn'>
+                <span class='star-count'>0</span>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+      </li>
+    </ul>
+</div>
