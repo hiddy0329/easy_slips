@@ -19,6 +19,10 @@ class SlipsController < ApplicationController
     end
   end
 
+  def show
+    @slip = Slip.find(params[:id])
+  end
+
   private
 
   def slip_params
