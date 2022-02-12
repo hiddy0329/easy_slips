@@ -1,6 +1,10 @@
 class SlipsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @slips = Slip.all.order('created_at DESC')
+  end
+
   def new
     @slip = Slip.new
     10.times do

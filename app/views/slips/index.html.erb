@@ -1,0 +1,31 @@
+<h2 class="text-center bg-primary text-white">作成済み伝票一覧</h2>
+
+<div class="container">
+  <div class="row">
+    <% @slips.each do |slip| %>
+      <div class="col-sm-4">
+        <div class="card text-center mt-3" style="width: 25rem;">
+          <div class="card-body">
+            <h5 class="card-title">伝票番号：<%= slip.slip_number %></h5>
+            <p class="card-text">出荷先：<%= slip.address_name %></p>
+            <p class="card-text">出荷日：<%= slip.shipping_date %></p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  
+  <% if @slips.length == 0 %>
+    <div class="card text-center mt-3 mb-5" style="width: 80rem;">
+      <div class="card-body">
+        <h5 class="card-title text-danger">※伝票を作成してください※</h5>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="text-center mt-3">
+    <%= link_to "戻る", root_path, class: 'btn btn-success' %>
+  </div>
+</div>
