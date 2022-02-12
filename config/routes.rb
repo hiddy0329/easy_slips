@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root "tops#index"
   resources :products, only:[:new, :create]
   resources :clients, only:[:new, :create]
-  resources :slips, only: [:index, :new, :create, :show, :edit, :update]
+  resources :slips
 end

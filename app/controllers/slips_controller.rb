@@ -1,6 +1,6 @@
 class SlipsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_slip, only: [:show, :edit, :update]
+  before_action :set_slip, only: [:show, :edit, :update, :destroy]
 
   def index
     @slips = Slip.all.order('created_at DESC')
@@ -32,6 +32,11 @@ class SlipsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @slip.destroy
+    redirect_to slips_path
   end
 
   private
