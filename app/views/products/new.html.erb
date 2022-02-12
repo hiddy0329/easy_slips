@@ -1,5 +1,7 @@
 <%= render partial:'error_messages', model: @form %>
 
+<h2 class="text-center bg-primary text-white">新規商品登録</h2>
+
 <%= form_for(@form, url: products_path, method: :post) do |fb| %>
 <div class="container">
 <table class="table">
