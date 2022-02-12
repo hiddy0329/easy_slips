@@ -9,7 +9,7 @@
             <h5 class="card-title">伝票番号：<%= slip.slip_number %></h5>
             <p class="card-text">出荷先：<%= slip.address_name %></p>
             <p class="card-text">出荷日：<%= slip.shipping_date %></p>
-            <a href="#" class="card-link">Card link</a>
+            <%= link_to "詳細", slip_path(slip.id), class:"card-link"%>
             <a href="#" class="card-link">Another link</a>
           </div>
         </div>
