@@ -1,5 +1,6 @@
 class SlipsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_slip, only: [:show, :edit, :update]
 
   def index
     @slips = Slip.all.order('created_at DESC')
@@ -20,12 +21,26 @@ class SlipsController < ApplicationController
   end
 
   def show
-    @slip = Slip.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @slip.update(slip_params)
+      redirect_to slip_path(@slip.id)
+    else
+      render :edit
+    end
   end
 
   private
 
   def slip_params
     params.require(:slip).permit(:address_name, :shipping_date, :slip_number, :invoice_number, orders_attributes: [:order_number, :color, :count, :note, :_destroy, :id])
+  end
+
+  def set_slip
+    @slip = Slip.find(params[:id])
   end
 end
