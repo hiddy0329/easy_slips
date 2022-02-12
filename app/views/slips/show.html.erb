@@ -57,30 +57,32 @@
     </thead>
     <tbody class="bulk-registration-form">
       <% @slip.orders.each do |order| %>
-      <% if order.order_number.present? %>
-      <tr class="item">
-        <td>
-          <%= order.order_number %>
-        </td>
-        <td>
-          <%= order.color %>
-        </td>
-        <td>
-          <%= order.count %>
-        </td>
-        <td>
-          <%= order.note %>
-        </td>
-      </tr> 
-      <% end %>
+        <% if order.order_number.present? %>
+          <tr class="item">
+            <td>
+              <%= order.order_number %>
+            </td>
+            <td>
+              <%= order.color %>
+            </td>
+            <td>
+              <%= order.count %>
+            </td>
+            <td>
+              <%= order.note %>
+            </td>
+          </tr> 
+        <% end %>
       <% end %>
     </tbody>
   </table>
 </div>
 
-<div class="text-center">
-<%= link_to "編集", edit_slip_path(@slip.id), class: 'btn btn-primary' %>
-<%= link_to "戻る", slips_path, class: 'btn btn-success' %>
 </div>
-
+<div class="text-center mt-3">
+  <%= link_to "編集", edit_slip_path(@slip.id), class: 'btn btn-primary' %>
+  <%= link_to "削除", slip_path(@slip.id), method: :delete, class: 'btn btn-primary' %>
+</div>
+<div class="text-center mt-3">
+  <%= link_to "戻る", slips_path, class: 'btn btn-success' %>
 </div>

@@ -10,7 +10,7 @@
             <p class="card-text">出荷先：<%= slip.address_name %></p>
             <p class="card-text">出荷日：<%= slip.shipping_date %></p>
             <%= link_to "詳細", slip_path(slip.id), class:"card-link"%>
-            <a href="#" class="card-link">Another link</a>
+            <%= link_to "削除", slip_path(slip.id), method: :delete, class:"card-link"%>
           </div>
         </div>
         作成日：<%= slip.created_at.strftime('%Y/%m/%d') %>
