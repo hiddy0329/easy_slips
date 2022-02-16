@@ -1,6 +1,6 @@
 class SlipsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_slip, only: [:show, :edit, :update, :destroy]
+  before_action :set_slip, only: [:show, :edit, :update, :destroy, :output]
 
   def index
     @slips = Slip.all.order('created_at DESC')
@@ -37,6 +37,24 @@ class SlipsController < ApplicationController
   def destroy
     @slip.destroy
     redirect_to slips_path
+  end
+
+  def output
+
+    report = Thinreports::Report.new(layout: "#{Rails.root}/app/pdfs/easy_slips.tlf")
+
+    # 少なくとも1枚はページがないと破損したPDF扱いになるので適当に作っておく
+    report.start_new_page
+
+    report.page.item(:world).value(@slip.address_name)
+
+    file = report.generate
+
+    send_data(
+      file,
+      filename: "hello_world.pdf",
+      type: "application/pdf",
+      disposition: "inline")
   end
 
   private
