@@ -52,7 +52,7 @@ class SlipsController < ApplicationController
 
     send_data(
       file,
-      filename: "hello_world.pdf",
+      filename: "easy_slips.pdf",
       type: "application/pdf",
       disposition: "inline")
   end
