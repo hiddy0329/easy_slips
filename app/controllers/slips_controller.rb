@@ -43,11 +43,28 @@ class SlipsController < ApplicationController
 
     report = Thinreports::Report.new(layout: "#{Rails.root}/app/pdfs/easy_slips.tlf")
 
-    # 少なくとも1枚はページがないと破損したPDF扱いになるので適当に作っておく
     report.start_new_page
 
-    report.page.item(:world).value(@slip.address_name)
+    report.page.item(:address_name).value(@slip.address_name)
+    report.page.item(:company).value(current_user.name)
+    report.page.item(:shipping_date).value(@slip.shipping_date)
+    report.page.item(:slip_number).value(@slip.slip_number)
+    report.page.item(:invoice_number).value(@slip.invoice_number)
 
+    total = 0 
+    @slip.orders.each do |order| 
+      report.list.add_row do |row| 
+        row.item(:order_number).value(order.order_number)
+        row.item(:color).value(order.color)
+        row.item(:count).value(order.count)
+        row.item(:note).value(order.note)
+      end
+      if order.count.present? 
+        total += order.count 
+      end
+    end
+    report.page.item(:total).value(total) 
+  
     file = report.generate
 
     send_data(
