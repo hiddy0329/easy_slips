@@ -7,10 +7,11 @@ class ProductsController < ApplicationController
 
   def create
     @form = Form::ProductCollection.new(product_collection_params)
-    unless @form.save
+    if @form.save
+      redirect_to root_path
+    else
       render :new
     end
-
   end
 
   private
