@@ -1,5 +1,9 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
+  
+  def index
+    @products = Product.all.order('created_at DESC')
+  end
 
   def new
     @form = Form::ProductCollection.new
@@ -12,6 +16,12 @@ class ProductsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to products_path
   end
 
   private
