@@ -1,11 +1,13 @@
-<% @form.products.each do |product|%>
-  <% if product.errors.any? %>
-    <div class="error-alert">
+<% if @form.products.any? { |product| product.errors.present? } %>
+  <div class="alert alert-danger">
+    <% @form.products.each do |product| %>
+      <% if product.errors.present? %>
       <ul>
         <% product.errors.full_messages.each do |message| %>
-          <li class='error-message'><%= message %></li>
+          <li><%= message %></li>
         <% end %>
       </ul>
-    </div>
-  <% end %>
+      <% end %>
+    <% end %>
+  </div>
 <% end %>

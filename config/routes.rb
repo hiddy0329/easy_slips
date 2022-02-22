@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root "tops#index"
-  resources :products, only:[:new, :create]
+  resources :products, only:[:index, :new, :create, :destroy]
   resources :clients, only:[:new, :create]
   resources :slips do
     member do

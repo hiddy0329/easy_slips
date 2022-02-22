@@ -1,5 +1,5 @@
 class Form::ProductCollection < Form::Base
-  FORM_COUNT = 10 #ここで、作成したい登録フォームの数を指定
+  FORM_COUNT = 10 
   attr_accessor :products 
 
   def initialize(attributes = {})
@@ -14,7 +14,7 @@ class Form::ProductCollection < Form::Base
   def save
     Product.transaction do
       self.products.map do |product|
-        if product.availability # ここでチェックボックスにチェックを入れている商品のみが保存される
+        if product.availability
           product.save
         end
       end
