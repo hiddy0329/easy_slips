@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  validates :note, length: { maximum: 50 }
+  validates :note, length: { maximum: 20 }
 
   belongs_to :slip
 end

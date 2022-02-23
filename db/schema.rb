@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2022_02_04_105625) do
     t.integer "order_number"
     t.string "color"
     t.integer "count"
-    t.string "note", limit: 50
+    t.string "note", limit: 20
     t.bigint "slip_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
