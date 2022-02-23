@@ -1,0 +1,12 @@
+<div class="col-sm-4 text-center">
+  <div class="card mt-3" style="width: 25rem;">
+    <div class="card-body">
+      <h5 class="card-title">伝票番号：<%= slip.slip_number %></h5>
+      <p class="card-text">出荷先：<%= slip.address_name %></p>
+      <p class="card-text">出荷日：<%= slip.shipping_date %></p>
+      <%= link_to "詳細", slip_path(slip.id), class:"card-link"%>
+      <%= link_to "削除", slip_path(slip.id), method: :delete, class:"card-link"%>
+    </div>
+  </div>
+  作成日：<%= slip.created_at.strftime('%Y/%m/%d') %>
+</div>
