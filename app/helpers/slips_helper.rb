@@ -6,4 +6,12 @@ module SlipsHelper
     end
     return raw(html)
   end
+
+  def slip_order_lists(orders)
+    html = ''
+    orders.each do |order| 
+      html += render(partial: "slip_order", locals: { order: order }) 
+    end
+    return raw(html)
+  end
 end

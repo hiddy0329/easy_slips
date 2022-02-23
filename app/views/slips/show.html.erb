@@ -56,24 +56,7 @@
       </tr>
     </thead>
     <tbody class="bulk-registration-form">
-      <% @slip.orders.each do |order| %>
-        <% if order.order_number.present? %>
-          <tr class="item">
-            <td>
-              <%= order.order_number %>
-            </td>
-            <td>
-              <%= order.color %>
-            </td>
-            <td>
-              <%= order.count %>
-            </td>
-            <td>
-              <%= order.note %>
-            </td>
-          </tr> 
-        <% end %>
-      <% end %>
+      <%= slip_order_lists(@slip.orders) %>
     </tbody>
   </table>
 </div>
