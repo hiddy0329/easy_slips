@@ -1,9 +1,9 @@
-<%# <%= render partial:'error_messages', model: fb.object %> 
+<%= render partial:'error_messages', model: @form %> 
 
 <h2 class="text-center bg-primary text-white">新規取引先登録</h2>
 
 <div class="container">
-<%= form_for(@form, url: clients_path, method: :post) do |fb| %>
+<%= form_with model: @form, url: clients_path, method: :post, local: true do |fb| %>
 <table class="table">
 <thead>
   <tr>
