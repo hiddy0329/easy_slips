@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
   def create
     @form = Form::ProductCollection.new(product_collection_params)
     if @form.save
-      redirect_to root_path
+      redirect_to products_path
     else
       render :new
     end
