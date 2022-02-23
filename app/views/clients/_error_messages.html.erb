@@ -1,0 +1,13 @@
+<% if @form.clients.any? { |client| client.errors.present? } %>
+  <div class="alert alert-danger">
+    <% @form.clients.each do |client| %>
+      <% if client.errors.present? %>
+      <ul>
+        <% client.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

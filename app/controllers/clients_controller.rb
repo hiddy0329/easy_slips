@@ -1,5 +1,9 @@
 class ClientsController < ApplicationController
   before_action :authenticate_user!
+  
+  def index
+    @clients = Client.all.order('created_at DESC')
+  end
 
   def new
     @form = Form::ClientCollection.new
@@ -7,9 +11,17 @@ class ClientsController < ApplicationController
 
   def create
     @form = Form::ClientCollection.new(client_collection_params)
-    unless @form.save
+    if @form.save
+      redirect_to clients_path
+    else
       render :new
     end
+  end
+
+  def destroy
+    @client = Client.find(params[:id])
+    @client.destroy
+    redirect_to clients_path
   end
 
   private
