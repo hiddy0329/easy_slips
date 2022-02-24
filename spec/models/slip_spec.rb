@@ -14,8 +14,8 @@ RSpec.describe Slip, type: :model do
         expect(@slip).to be_valid
       end
 
-      it 'slip_numberが11桁以下であれば登録できる' do
-        @slip.slip_number = 11111111111
+      it 'slip_numberが10桁以下であれば登録できる' do
+        @slip.slip_number = 1111111111
         expect(@slip).to be_valid
       end
 
@@ -24,8 +24,8 @@ RSpec.describe Slip, type: :model do
         expect(@slip).to be_valid
       end
 
-      it 'invoice_numberが11桁以下であれば登録できる' do
-        @slip.invoice_number = 11111111111
+      it 'invoice_numberが10桁以下であれば登録できる' do
+        @slip.invoice_number = 1111111111
         expect(@slip).to be_valid
       end
 
@@ -54,16 +54,16 @@ RSpec.describe Slip, type: :model do
         expect(@slip.errors.full_messages).to include("Slip number can't be blank")
       end
 
-      it 'slip_numberが12桁以上では登録できない' do
-        @slip.slip_number = 111111111111
+      it 'slip_numberが11桁以上では登録できない' do
+        @slip.slip_number = 11111111111
         @slip.valid?
-        expect(@slip.errors.full_messages).to include("Slip number is too long (maximum is 11 characters)")
+        expect(@slip.errors.full_messages).to include("Slip number is too long (maximum is 10 characters)")
       end
 
-      it 'invoice_numberが12桁以上では登録できない' do
-        @slip.invoice_number = 111111111111
+      it 'invoice_numberが11桁以上では登録できない' do
+        @slip.invoice_number = 11111111111
         @slip.valid?
-        expect(@slip.errors.full_messages).to include("Invoice number is too long (maximum is 11 characters)")
+        expect(@slip.errors.full_messages).to include("Invoice number is too long (maximum is 10 characters)")
       end
 
       it 'orderのnoteが20文字より多い場合登録できない' do
