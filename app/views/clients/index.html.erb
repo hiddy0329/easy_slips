@@ -1,5 +1,4 @@
 <h2 class="text-center bg-primary text-white">登録済み取引先一覧</h2>
-
 <div class="container">
   <table class="table">
     <thead>
@@ -9,24 +8,10 @@
         <th></th>
       </tr>
     </thead>
-  
     <tbody class="bulk-registration-form">
-      <% @clients.each do |client| %>
-        <tr class="item">
-          <td>
-            <%= client.created_at.strftime('%Y/%m/%d') %>
-          </td>
-          <td>
-            <%= client.name %>
-          </td>
-          <td>
-            <%= link_to "削除", client_path(client.id), method: :delete, class: 'btn btn-danger' %>
-          </td>
-        </tr>
-      <% end %>
+      <%= client_lists(@clients) %>
     </tbody>
   </table>
-
   <% if @clients.length == 0 %>
     <div class="card text-center mt-3 mb-5" style="width: 80rem;">
       <div class="card-body">
@@ -35,7 +20,6 @@
     </div>
   <% end %>
 </div>
-
 <div class="text-center mt-3">
   <%= link_to "戻る", root_path, class: 'btn btn-success' %>
 </div>  

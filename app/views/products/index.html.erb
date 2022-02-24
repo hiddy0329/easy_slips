@@ -1,5 +1,4 @@
 <h2 class="text-center bg-primary text-white">登録済み商品一覧</h2>
-
 <div class="container">
   <table class="table">
     <thead>
@@ -13,36 +12,10 @@
         <th></th>
       </tr>
     </thead>
-  
     <tbody class="bulk-registration-form">
-      <% @products.each do |product| %>
-        <tr class="item">
-          <td>
-            <%= product.created_at.strftime('%Y/%m/%d') %>
-          </td>
-          <td>
-            <%= product.item_number %>
-          </td>
-          <td>
-            <%= product.name %>
-          </td>
-          <td>
-            <%= product.color %>
-          </td>
-          <td>
-            <%= product.price %>
-          </td>
-          <td>
-            <%= product.note %>
-          </td>
-          <td>
-            <%= link_to "削除", product_path(product.id), method: :delete, class: 'btn btn-danger' %>
-          </td>
-        </tr>
-      <% end %>
+      <%= product_lists(@products) %>
     </tbody>
   </table>
-
   <% if @products.length == 0 %>
     <div class="card text-center mt-3 mb-5" style="width: 80rem;">
       <div class="card-body">
@@ -51,7 +24,6 @@
     </div>
   <% end %>
 </div>
-
 <div class="text-center mt-3">
   <%= link_to "戻る", root_path, class: 'btn btn-success' %>
 </div>  
