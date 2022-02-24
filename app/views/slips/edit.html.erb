@@ -5,74 +5,70 @@
 
 <%= render partial:'error_messages', model: @slip %> 
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <th>【出荷先】</th>
-      <%= fb.collection_select :address_name, Client.select(:name).distinct, :name, :name, {include_blank: "--"}, class: "form-control" %>
-    </div>
-    <div class="col-md-6">
-      <th>【送り主】</th>
-      <p class="h2">
-      <%= current_user.name %>
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <th>【出荷日】</th>
-      <%= fb.date_field :shipping_date, class: 'form-control' %>
-    </div>
-    <div class="col-md-4">
-      <th>【伝票番号】</th>
-      <%= fb.text_field :slip_number, class: 'form-control' %>
-    </div>
-    <div class="col-md-4">
-      <th>【送り状ナンバー】</th>
-      <%= fb.text_field :invoice_number, class: 'form-control' %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <th>【出荷先】</th>
+        <%= fb.collection_select :address_name, Client.select(:name).distinct, :name, :name, {include_blank: "--"}, class: "form-control" %>
+      </div>
+      <div class="col-md-6">
+        <th>【送り主】</th>
+        <p class="h2">
+          <%= current_user.name %>
+        </p>
+      </div>
     </div>
   </div>
-</div>
-
-<div class="container">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>品番</th>
-        <th>色</th>
-        <th>数量</th>
-        <th>備考</th>
-      </tr>
-    </thead>
-    <tbody class="bulk-registration-form">
-      <%= fb.fields_for :orders do |f| %>
-      <tr class="item">
-        <td>
-          <%= f.collection_select :order_number, Product.select(:item_number).distinct, :item_number, :item_number, {include_blank: "--"}, class: "form-control" %>
-        </td>
-        <td>
-          <%= f.collection_select :color, Product.select(:color).distinct, :color, :color, {include_blank: "--"}, class: "form-control" %>
-        </td>
-        <td>
-          <%= f.text_field :count, class: 'form-control' %>
-        </td>
-        <td>
-          <%= f.text_field :note, class: 'form-control' %>
-        </td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
-
-<div class="text-center">
-<%= fb.submit '更新', class: 'btn btn-primary' %>
-<%= link_to "戻る", root_path, class: 'btn btn-success' %>
-</div>
-
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <th>【出荷日】</th>
+        <%= fb.date_field :shipping_date, class: 'form-control' %>
+      </div>
+      <div class="col-md-4">
+        <th>【伝票番号】</th>
+        <%= fb.text_field :slip_number, class: 'form-control' %>
+      </div>
+      <div class="col-md-4">
+        <th>【送り状ナンバー】</th>
+        <%= fb.text_field :invoice_number, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>品番</th>
+          <th>色</th>
+          <th>数量</th>
+          <th>備考</th>
+        </tr>
+      </thead>
+      <tbody class="bulk-registration-form">
+        <%= fb.fields_for :orders do |f| %>
+          <tr class="item">
+            <td>
+              <%= f.collection_select :order_number, Product.select(:item_number).distinct, :item_number, :item_number, {include_blank: "--"}, class: "form-control" %>
+            </td>
+            <td>
+              <%= f.collection_select :color, Product.select(:color).distinct, :color, :color, {include_blank: "--"}, class: "form-control" %>
+            </td>
+            <td>
+              <%= f.text_field :count, class: 'form-control' %>
+            </td>
+            <td>
+              <%= f.text_field :note, class: 'form-control' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="text-center">
+    <%= fb.submit '更新', class: 'btn btn-primary' %>
+    <%= link_to "戻る", root_path, class: 'btn btn-success' %>
+  </div>
 <% end %>
 
 </div>

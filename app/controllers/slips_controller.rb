@@ -40,7 +40,6 @@ class SlipsController < ApplicationController
   end
 
   def output
-
     report = Thinreports::Report.new(layout: "#{Rails.root}/app/pdfs/easy_slips.tlf")
 
     report.start_new_page

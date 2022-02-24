@@ -1,50 +1,51 @@
-<%= render partial:'error_messages', model: @form %>
-
 <h2 class="text-center bg-primary text-white">新規商品登録</h2>
-
-<%= form_with model: @form, url: products_path, method: :post, local: true do |fb| %>
 <div class="container">
-<table class="table">
-<thead>
-  <tr>
-    <th width="60px">登録</th>
-    <th>品番</th>
-    <th>商品名</th>
-    <th>色</th>
-    <th>販売価格</th>
-    <th>備考</th>
-  </tr>
-</thead>
-<tbody class="bulk-registration-form">
-<%= fb.fields_for :products do |f| %>
-  <tr class="item">
-  <td class="text-center">
-  <%= f.check_box :availability, class: 'top10 registration-checkbox' %>
-  </td>
-  <td>
-  <%= f.text_field :item_number, class: 'form-control' %>
-  </td>
-  <td>
-  <%= f.text_field :name, class: 'form-control' %>
-  </td>
-  <td>
-  <%= f.text_field :color, class: 'form-control' %>
-  </td>
-  <td>
-  <%= f.text_field :price, class: 'form-control' %>
-  </td>
-  <td>
-  <%= f.text_field :note, class: 'form-control' %>
-  </td>
-</tr>
-<% end %>
-</tbody>
-</table>
-<div class="text-center">
-<%= fb.submit '一括登録', class: 'btn btn-primary' %>
-<%= link_to "戻る", root_path, class: 'btn btn-success' %>
+  <%= form_with model: @form, url: products_path, method: :post, local: true do |fb| %>
+
+  <%= render partial:'error_messages', model: @form %>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th width="60px">登録</th>
+          <th>品番</th>
+          <th>商品名</th>
+          <th>色</th>
+          <th>販売価格</th>
+          <th>備考</th>
+        </tr>
+      </thead>
+      <tbody class="bulk-registration-form">
+        <%= fb.fields_for :products do |f| %>
+          <tr class="item">
+            <td class="text-center">
+              <%= f.check_box :availability, class: 'top10 registration-checkbox' %>
+            </td>
+            <td>
+              <%= f.text_field :item_number, class: 'form-control' %>
+            </td>
+            <td>
+              <%= f.text_field :name, class: 'form-control' %>
+            </td>
+            <td>
+              <%= f.text_field :color, class: 'form-control' %>
+            </td>
+            <td>
+              <%= f.text_field :price, class: 'form-control' %>
+            </td>
+            <td>
+              <%= f.text_field :note, class: 'form-control' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="text-center">
+      <%= fb.submit '一括登録', class: 'btn btn-primary' %>
+      <%= link_to "戻る", root_path, class: 'btn btn-success' %>
+    </div>
+  <% end %>
 </div>
-</div>
-<% end %>
+
 
 

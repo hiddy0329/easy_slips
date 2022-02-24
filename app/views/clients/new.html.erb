@@ -1,37 +1,36 @@
-<%= render partial:'error_messages', model: @form %> 
-
 <h2 class="text-center bg-primary text-white">新規取引先登録</h2>
-
 <div class="container">
-<%= form_with model: @form, url: clients_path, method: :post, local: true do |fb| %>
-<table class="table">
-<thead>
-  <tr>
-    <th width="80px", class="text-center h3">
-    <strong>登録</strong>
-    </th>
-    <th class="text-center h3">
-    <strong>取引先名</strong>
-    </th>
-  </tr>
-</thead>
-<tbody class="registration-form">
-<%= fb.fields_for :clients do |f| %>
-<tr class="item">
-  <td class="text-center">
-  <%= f.check_box :availability, class: 'top10 registration-checkbox' %>
-  </td>
-  <td>
-  <%= f.text_field :name, class: 'form-control' %>
-  </td>
-</tr>
-<% end %>
-</tbody>
-</table>
-<div class="text-center">
-<%= fb.submit '一括登録', class: 'btn btn-primary' %>
-<%= link_to "戻る", root_path, class: 'btn btn-success' %>
-</div>
+  <%= form_with model: @form, url: clients_path, method: :post, local: true do |fb| %>
 
-<% end %>
+  <%= render partial:'error_messages', model: @form %> 
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th width="80px", class="text-center h3">
+            <strong>登録</strong>
+          </th>
+          <th class="text-center h3">
+            <strong>取引先名</strong>
+          </th>
+        </tr>
+      </thead>
+      <tbody class="registration-form">
+        <%= fb.fields_for :clients do |f| %>
+          <tr class="item">
+            <td class="text-center">
+              <%= f.check_box :availability, class: 'top10 registration-checkbox' %>
+            </td>
+            <td>
+              <%= f.text_field :name, class: 'form-control' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="text-center">
+      <%= fb.submit '一括登録', class: 'btn btn-primary' %>
+      <%= link_to "戻る", root_path, class: 'btn btn-success' %>
+    </div>
+  <% end %>
 </div>

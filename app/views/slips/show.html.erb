@@ -1,66 +1,62 @@
 <div class="d-grid gap-5">
-<h2 class="text-center bg-primary text-white">伝票詳細</h2>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <th>【出荷先】</th>
-      <div class="form-control">
-      <%= @slip.address_name %>
+  <h2 class="text-center bg-primary text-white">伝票詳細</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <th>【出荷先】</th>
+        <div class="form-control">
+          <%= @slip.address_name %>
+        </div>
       </div>
-    </div>
-    <div class="col-md-6">
-      <th>【送り主】</th>
-      <p class="h2">
-      <%= current_user.name %>
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <th>【出荷日】</th>
-      <div class="form-control">
-      <%= @slip.shipping_date %>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <th>【伝票番号】</th>
-      <div class="form-control">
-      <%= @slip.slip_number %>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <th>【送り状ナンバー】</th>
-      <div class="form-control">
-      <% if @slip.invoice_number.present? %>
-        <%= @slip.invoice_number %>
-      <% else %>
-        なし
-      <% end %>
+      <div class="col-md-6">
+        <th>【送り主】</th>
+        <p class="h2">
+          <%= current_user.name %>
+        </p>
       </div>
     </div>
   </div>
-</div>
-
-<div class="container">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>品番</th>
-        <th>色</th>
-        <th>数量</th>
-        <th>備考</th>
-      </tr>
-    </thead>
-    <tbody class="bulk-registration-form">
-      <%= slip_order_lists(@slip.orders) %>
-    </tbody>
-  </table>
-</div>
-
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <th>【出荷日】</th>
+        <div class="form-control">
+          <%= @slip.shipping_date %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <th>【伝票番号】</th>
+        <div class="form-control">
+          <%= @slip.slip_number %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <th>【送り状ナンバー】</th>
+        <div class="form-control">
+          <% if @slip.invoice_number.present? %>
+            <%= @slip.invoice_number %>
+          <% else %>
+            なし
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>品番</th>
+          <th>色</th>
+          <th>数量</th>
+          <th>備考</th>
+        </tr>
+      </thead>
+      <tbody class="bulk-registration-form">
+        <%= slip_order_lists(@slip.orders) %>
+      </tbody>
+    </table>
+  </div>
 </div>
 <div class="text-center mt-3">
   <%= link_to "PDF出力", output_slip_path(@slip.id), class: 'btn btn-danger' %>
