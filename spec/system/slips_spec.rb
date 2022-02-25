@@ -18,7 +18,7 @@ RSpec.describe "Slips", type: :system do
       expect(current_path).to eq(root_path)
       # 伝票作成ページへのボタンがあることを確認する
       expect(page).to have_content('伝票を作成する')
-      # 投稿ページに移動する
+      # 伝票作成ページに移動する
       visit new_slip_path
       # フォームに情報を入力する
       select @client.name, from: "slip_address_name"
@@ -30,7 +30,7 @@ RSpec.describe "Slips", type: :system do
       fill_in 'slip_orders_attributes_0_note', with: @order.note
       # 送信するとSlipモデルのカウントが1上がることを確認する
       expect{
-        find('input[data-disable-with="登録"]').click
+        find('input[name="commit"]').click
       }.to change { Slip.count }.by(1)
       # 伝票作成完了ページに遷移することを確認する
       expect(current_path).to eq(slips_path)
@@ -55,7 +55,7 @@ RSpec.describe "Slips", type: :system do
       visit root_path
       # 伝票作成ページへのボタンがあることを確認する
       expect(page).to have_content('伝票を作成する')
-      # 投稿ページに移動する
+      # 伝票作成ページに移動する
       visit new_slip_path
       # ログインページに遷移していることを確認する
       expect(current_path).to eq(new_user_session_path)
