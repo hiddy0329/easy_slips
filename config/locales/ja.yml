@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: 会社名・個人事業主名
+        postal_code: 郵便番号
+        prefecture_id: 都道府県
+        city: 市区町村
+        address: 番地
+        phone_number: 電話番号
+      slip:
+        address_name: 出荷先
+        shipping_date: 出荷日
+        slip_number: 伝票番号
+        invoice_number: 送り状ナンバー
+      slip/orders:
+        note: 備考

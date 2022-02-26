@@ -66,3 +66,5 @@ gem 'pry-rails'
 gem 'jquery-rails'
 
 gem'thinreports'
+
+gem 'rails-i18n'
