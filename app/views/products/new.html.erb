@@ -1,5 +1,12 @@
 <h2 class="text-center bg-primary text-white">新規商品登録</h2>
+
 <div class="container">
+  <div class="card text-center mt-3 mb-5" style="width: 80rem;">
+    <div class="card-body">
+      <h5 class="card-title text-danger">※登録前に必ずチェックボックスにチェックを入れてください。※<br>チェックを入れた商品のみが一括で登録されます。</h5>
+    </div>
+  </div>
+
   <%= form_with model: @form, url: products_path, method: :post, local: true do |fb| %>
 
   <%= render partial:'error_messages', model: @form %>
@@ -46,6 +53,7 @@
     </div>
   <% end %>
 </div>
+
 
 
 
