@@ -4,5 +4,6 @@ FactoryBot.define do
     color { "赤" }
     count { 300 }
     note {"あいうえおかきくけこさしすせそたちつてと"}
+    association :slip
   end
 end

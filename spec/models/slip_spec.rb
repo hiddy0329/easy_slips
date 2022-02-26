@@ -28,11 +28,6 @@ RSpec.describe Slip, type: :model do
         @slip.invoice_number = 1111111111
         expect(@slip).to be_valid
       end
-
-      it 'orderのnoteが20文字以下であれば登録できる' do
-        @order.note = 'あいうえおかきくけこさしすせそたちつてと'
-        expect(@slip).to be_valid
-      end
     end
 
     context '作成した伝票を登録できない場合' do
@@ -64,12 +59,6 @@ RSpec.describe Slip, type: :model do
         @slip.invoice_number = 11111111111
         @slip.valid?
         expect(@slip.errors.full_messages).to include("Invoice number is too long (maximum is 10 characters)")
-      end
-
-      it 'orderのnoteが20文字より多い場合登録できない' do
-        @order.note = 'あいうえおかきくけこさしすせそたちつてとな'
-        @slip.valid?
-        expect(@slip.errors.full_messages).to include("Orders note is too long (maximum is 20 characters)")
       end
     end
   end
