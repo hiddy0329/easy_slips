@@ -7,7 +7,7 @@
     </div>
   </div>
 
-  <%= form_with model: @form, url: products_path, method: :post, local: true do |fb| %>
+  <%= form_with model: @form, url: products_path, method: :post, class:"mb-5", local: true do |fb| %>
 
   <%= render partial:'error_messages', model: @form %>
 
