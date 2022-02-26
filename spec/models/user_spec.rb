@@ -25,124 +25,124 @@ RSpec.describe User, type: :model do
       it 'nameが空では登録できない' do
         @user.name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Name can't be blank")
+        expect(@user.errors.full_messages).to include("会社名・個人事業主名を入力してください")
       end
       it 'emailが空では登録できない' do
         @user.email = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email can't be blank")
+        expect(@user.errors.full_messages).to include("Eメールを入力してください")
       end
       it '重複したemailが存在する場合登録できない' do
         @user.save
         another_user = FactoryBot.build(:user)
         another_user.email = @user.email
         another_user.valid?
-        expect(another_user.errors.full_messages).to include('Email has already been taken')
+        expect(another_user.errors.full_messages).to include('Eメールはすでに存在します')
       end
       it 'メールアドレスに@を含まない場合は登録できない ' do
         @user.email = 'abc123.com'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Email is invalid')
+        expect(@user.errors.full_messages).to include('Eメールは不正な値です')
       end
       it 'passwordが空では登録できない' do
         @user.password = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password can't be blank")
+        expect(@user.errors.full_messages).to include("パスワードを入力してください")
       end
       it 'passwordが5文字以下であれば登録できない' do
         @user.password = 'aaa11'
         @user.password_confirmation = 'aaa11'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
+        expect(@user.errors.full_messages).to include('パスワードは6文字以上で入力してください')
       end
       it 'passwordとpassword_confirmationが不一致では登録できない' do
         @user.password = 'aaa111'
         @user.password_confirmation = 'aaa112'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+        expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
       end
       it 'passwordが英字のみでは登録できない' do
         @user.password = 'aaaaaa'
         @user.password_confirmation = 'aaaaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password は半角かつ英数を両方含む必要があります')
+        expect(@user.errors.full_messages).to include('パスワードは半角かつ英数を両方含む必要があります')
       end
       it 'passwordが数字のみでは登録できない' do
         @user.password = '111111'
         @user.password_confirmation = '111111'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password は半角かつ英数を両方含む必要があります')
+        expect(@user.errors.full_messages).to include('パスワードは半角かつ英数を両方含む必要があります')
       end
       it '全角文字を含むパスワードでは登録できない' do
         @user.password = 'ａｂｃ111aaa'
         @user.password_confirmation = 'ａｂｃ111aaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password は半角かつ英数を両方含む必要があります')
+        expect(@user.errors.full_messages).to include('パスワードは半角かつ英数を両方含む必要があります')
       end
       it 'postal_codeが空では保存できないこと' do
         @user.postal_code = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Postal code can't be blank")
+        expect(@user.errors.full_messages).to include("郵便番号を入力してください")
       end
       it 'postal_codeが「3桁-4桁」のフォーマットでなければ保存できないこと' do
         @user.postal_code = '1111-222'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@user.errors.full_messages).to include("郵便番号は不正な値です")
       end
       it 'postal_codeが半角でなければ保存できないこと' do
         @user.postal_code = '１１１-２２２'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@user.errors.full_messages).to include("郵便番号は不正な値です")
       end
       it 'postal_codeがハイフンなしでは保存できないこと' do
         @user.postal_code = '1112222'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@user.errors.full_messages).to include("郵便番号は不正な値です")
       end
       it 'prefecture_idが空では保存できないこと' do
         @user.prefecture_id = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@user.errors.full_messages).to include("都道府県を選択してください")
       end
       it 'prefecture_idが1では保存できないこと' do
         @user.prefecture_id = 1
         @user.valid?
-        expect(@user.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@user.errors.full_messages).to include("都道府県を選択してください")
       end
       it 'cityが空では保存できないこと' do
         @user.city = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("City can't be blank")
+        expect(@user.errors.full_messages).to include("市区町村を入力してください")
       end
       it 'addressが空では保存できないこと' do
         @user.address = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Address can't be blank")
+        expect(@user.errors.full_messages).to include("番地を入力してください")
       end
       it 'phone_numberが空では保存できないこと' do
         @user.phone_number = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Phone number can't be blank")
+        expect(@user.errors.full_messages).to include("電話番号を入力してください")
       end
       it 'phone_numberにハイフンが含まれている状態では保存できないこと' do
         @user.phone_number = '09-12345678'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Phone number is invalid")
+        expect(@user.errors.full_messages).to include("電話番号は不正な値です")
       end
       it 'phone_numberが全角では保存できないこと' do
         @user.phone_number = '０９０１２３４５６７８'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Phone number is invalid")
+        expect(@user.errors.full_messages).to include("電話番号は不正な値です")
       end
       it 'phone_numberが9桁以下では保存できないこと' do
         @user.phone_number = '090123456'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Phone number is invalid")
+        expect(@user.errors.full_messages).to include("電話番号は不正な値です")
       end
       it 'phone_numberが12桁以上では保存できないこと' do
         @user.phone_number = '090123456789'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Phone number is invalid")
+        expect(@user.errors.full_messages).to include("電話番号は不正な値です")
       end
     end
   end

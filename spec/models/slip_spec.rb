@@ -28,37 +28,48 @@ RSpec.describe Slip, type: :model do
         @slip.invoice_number = 1111111111
         expect(@slip).to be_valid
       end
+
+      it 'orderのnoteが20文字以下であれば登録できる' do
+        @order.note = 'あいうえおかきくけこさしすせそたちつてと'
+        expect(@slip).to be_valid
+      end
     end
 
     context '作成した伝票を登録できない場合' do
       it 'address_nameが空では登録できない' do
         @slip.address_name = ''
         @slip.valid?
-        expect(@slip.errors.full_messages).to include("Address name can't be blank")
+        expect(@slip.errors.full_messages).to include("出荷先を入力してください")
       end
 
       it 'shipping_dateが空では登録できない' do
         @slip.shipping_date = ''
         @slip.valid?
-        expect(@slip.errors.full_messages).to include("Shipping date can't be blank")
+        expect(@slip.errors.full_messages).to include("出荷日を入力してください")
       end
       
       it 'slip_numberが空では登録できない' do
         @slip.slip_number = ''
         @slip.valid?
-        expect(@slip.errors.full_messages).to include("Slip number can't be blank")
+        expect(@slip.errors.full_messages).to include("伝票番号を入力してください")
       end
 
       it 'slip_numberが11桁以上では登録できない' do
         @slip.slip_number = 11111111111
         @slip.valid?
-        expect(@slip.errors.full_messages).to include("Slip number is too long (maximum is 10 characters)")
+        expect(@slip.errors.full_messages).to include("伝票番号は10文字以内で入力してください")
       end
 
       it 'invoice_numberが11桁以上では登録できない' do
         @slip.invoice_number = 11111111111
         @slip.valid?
-        expect(@slip.errors.full_messages).to include("Invoice number is too long (maximum is 10 characters)")
+        expect(@slip.errors.full_messages).to include("送り状ナンバーは10文字以内で入力してください")
+      end
+
+      it 'orderのnoteが20文字より多い場合登録できない' do
+        @order.note = 'あいうえおかきくけこさしすせそたちつてとな'
+        @slip.valid?
+        expect(@slip.errors.full_messages).to include("備考は20文字以内で入力してください")
       end
     end
   end
