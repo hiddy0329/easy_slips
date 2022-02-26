@@ -8,11 +8,7 @@ RSpec.describe "Clients", type: :system do
   context '取引先登録ができるとき'do
     it 'ログインしたユーザーは取引先登録できる' do
       # ログインする
-      visit new_user_session_path
-      fill_in 'user_email', with: @user.email
-      fill_in 'user_password', with: @user.password
-      find('button[type="submit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@user)
       # 取引先登録ページへのボタンがあることを確認する
       expect(page).to have_content('取引先を登録する')
       # 商品登録ページに移動する

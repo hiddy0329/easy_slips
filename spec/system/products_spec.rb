@@ -8,11 +8,7 @@ RSpec.describe "Products", type: :system do
   context '商品登録ができるとき'do
     it 'ログインしたユーザーは商品登録できる' do
       # ログインする
-      visit new_user_session_path
-      fill_in 'user_email', with: @user.email
-      fill_in 'user_password', with: @user.password
-      find('button[type="submit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@user)
       # 商品登録ページへのボタンがあることを確認する
       expect(page).to have_content('商品を登録する')
       # 商品登録ページに移動する

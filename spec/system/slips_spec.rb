@@ -11,11 +11,7 @@ RSpec.describe "Slips", type: :system do
   context '伝票作成ができるとき'do
     it 'ログインしたユーザーは伝票作成できる' do
       # ログインする
-      visit new_user_session_path
-      fill_in 'user_email', with: @user.email
-      fill_in 'user_password', with: @user.password
-      find('button[type="submit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@user)
       # 伝票作成ページへのボタンがあることを確認する
       expect(page).to have_content('伝票を作成する')
       # 伝票作成ページに移動する
