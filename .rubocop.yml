@@ -9,6 +9,8 @@ Exclude:
   - "node_modules/**/*"
   - "Gemfile"
 
+require:
+    - rubocop-rails
 
 # 1行あたりの文字数をチェックする
 Layout/LineLength:
