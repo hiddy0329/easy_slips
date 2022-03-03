@@ -1,11 +1,10 @@
 <div class="d-grid gap-5">
 <h2 class="text-center bg-primary text-white">伝票編集</h2>
 
-<%= form_with model: @slip, url: slip_path, method: :patch, local: true do |fb| %>
-
 <%= render partial:'error_messages', model: @slip %> 
 
-  <div class="container">
+<div class="container">
+  <%= form_with model: @slip, url: slip_path, method: :patch, class:"mb-5", local: true do |fb| %>
     <div class="row">
       <div class="col-md-6">
         <th>【出荷先】</th>
@@ -18,24 +17,22 @@
         </p>
       </div>
     </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <th>【出荷日】</th>
-        <%= fb.date_field :shipping_date, class: 'form-control' %>
-      </div>
-      <div class="col-md-4">
-        <th>【伝票番号】</th>
-        <%= fb.text_field :slip_number, class: 'form-control' %>
-      </div>
-      <div class="col-md-4">
-        <th>【送り状ナンバー】</th>
-        <%= fb.text_field :invoice_number, class: 'form-control' %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <th>【出荷日】</th>
+          <%= fb.date_field :shipping_date, class: 'form-control' %>
+        </div>
+        <div class="col-md-4">
+          <th>【伝票番号】</th>
+          <%= fb.text_field :slip_number, class: 'form-control' %>
+        </div>
+        <div class="col-md-4">
+          <th>【送り状ナンバー】</th>
+          <%= fb.text_field :invoice_number, class: 'form-control' %>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="container">
     <table class="table">
       <thead>
         <tr>
@@ -64,11 +61,9 @@
         <% end %>
       </tbody>
     </table>
-  </div>
-  <div class="text-center">
-    <%= fb.submit '更新', class: 'btn btn-primary' %>
-    <%= link_to "戻る", root_path, class: 'btn btn-success' %>
-  </div>
-<% end %>
-
+    <div class="text-center">
+      <%= fb.submit '更新', class: 'btn btn-primary' %>
+      <%= link_to "戻る", root_path, class: 'btn btn-success' %>
+    </div>
+  <% end %>
 </div>
