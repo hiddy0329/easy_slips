@@ -111,7 +111,7 @@ PW:2222
 ### Association
 - belongs_to :slip
 
-![ER図](ER図.png)
+![ER図](pablic/ER図.png)
 
 # 備考・参考にしたサイト
 フロントサイド
