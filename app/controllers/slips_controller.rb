@@ -73,6 +73,10 @@ class SlipsController < ApplicationController
       disposition: "inline")
   end
 
+  def search
+    @slips = Slip.search(params[:keyword])
+  end
+
   private
 
   def slip_params
