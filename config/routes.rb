@@ -7,5 +7,8 @@ Rails.application.routes.draw do
     member do
       get 'output'
     end
+    collection do
+      get 'search'
+    end
   end
 end
