@@ -2,8 +2,39 @@ h2.ms-5 {
   margin-bottom: 0px;
 }
 
-div.carousel-item {
-  height: 400px;
-  overflow: hidden;
+.carousel{
+  height: 200px;
+  margin:auto;
 }
 
+@media (min-width: 320px) {
+  .carousel,
+  .carousel-item,
+  .carousel-inner img {
+    height:200px;
+  }
+}
+
+@media (min-width: 480px) {
+  .carousel,
+  .carousel-item,
+  .carousel-inner img {
+    height:250px;
+  }
+}
+
+@media (min-width: 768px) {
+  .carousel,
+  .carousel-item,
+  .carousel-inner img {
+    height:300px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .carousel,
+  .carousel-item,
+  .carousel-inner img {
+    height:400px;
+  }
+}
