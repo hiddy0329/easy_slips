@@ -1,8 +1,5 @@
 <div class="container">
   <body class="text-center">
-    <div class="d-flex">
-      <div class="w-25"></div>
-      <div class="w-50">
         <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), local: true do |f|%>
 
           <%= render "devise/shared/error_messages", resource: resource %>
@@ -46,8 +43,5 @@
           <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
   
         <% end %>
-    </div>
-    <div class="w-25"></div>
-    </div>
   </body>
 </div>
