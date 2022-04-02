@@ -2,6 +2,41 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-form.input-client {
-  margin: 0px 200px;
+@media (min-width: 320px) {
+  form.input-client {
+    margin: 0px 70px;
+  }
+
+  th.text-center {
+    font-size: 18px;
+  }
+
 }
+
+@media (min-width: 480px) {
+  form.input-client {
+    margin: 0px 100px;
+  }
+
+  th.text-center {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 768px) {
+  form.input-client {
+    margin: 0px 100px;
+  }
+
+  th.text-center {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  form.input-client {
+    margin: 0px 200px;
+  }
+}
+
+

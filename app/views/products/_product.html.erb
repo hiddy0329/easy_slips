@@ -18,6 +18,6 @@
     <%= product.note %>
   </td>
   <td>
-    <%= link_to "削除", product_path(product.id), method: :delete, class: 'btn btn-danger' %>
+    <%= link_to "削除", product_path(product.id), method: :delete, class: 'btn btn-danger', id: "element-delete"%>
   </td>
 </tr>

@@ -1,3 +1,49 @@
 // Place all the styles related to the slips controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@media (max-width: 1024px) {
+
+  h2.text-center {
+    font-size: 24px;
+  }
+  
+  div.col-sm-4 {
+    width: 50%;
+  }
+
+  .card-title {
+    font-size: 15px;
+  }
+
+  .card-text {
+    font-size: 15px;
+  }
+
+  .card-link {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 599px) {
+
+  h2.text-center {
+    font-size: 20px;
+  }
+  
+  div.col-sm-4 {
+    width: 100%;
+  }
+
+  .card-title {
+    font-size: 10px;
+  }
+
+  .card-text {
+    font-size: 10px;
+  }
+
+  .card-link {
+    font-size: 10px;
+  }
+}
