@@ -2,6 +2,16 @@ h2.ms-5 {
   margin-bottom: 0px;
 }
 
+.app-logo-block {
+  width: 70px;
+  height: 70px;
+}
+
+.app-logo {
+  max-width: 100%;
+  height: auto; 
+}
+
 @media (min-width: 320px) {
   .center,
   .center img {
@@ -32,7 +42,19 @@ h2.ms-5 {
 }
 
 @media (max-width: 1024px) {
-  
+  .app-name {
+    font-size: 30px;
+  }
+
+  .app-logo-block {
+    width: 50px;
+    height: 50px;
+  }
+
+  a.nav-link {
+    font-size: 24px;
+  }
+
   #navibtn {
     height: 50px;
     width: 50px;
@@ -40,6 +62,7 @@ h2.ms-5 {
 
   div.col-sm-6 {
     width: 100%;
+    margin-top: 10px;
   }
 
   a {
@@ -53,7 +76,19 @@ h2.ms-5 {
 }
 
 @media (max-width: 599px) {
-  
+  .app-logo-block {
+    width: 30px;
+    height: 30px;
+  }
+
+  .app-name {
+    font-size: 25px;
+  }
+
+  a.nav-link {
+    font-size: 15px;
+  }
+
   #navibtn {
     height: 30px;
     width: 30px;
@@ -61,14 +96,15 @@ h2.ms-5 {
 
   div.col-sm-6 {
     width: 100%;
+    margin-top: 10px;
   }
 
   a {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   #ichiran-btn {
-    font-size: 10px;
+    font-size: 8px;
   }
 
 }
