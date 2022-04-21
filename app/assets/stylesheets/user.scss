@@ -7,3 +7,15 @@ div.mb-3 {
   margin-left: 300px;
   margin-right: 300px;
 }
+
+@media (max-width: 1024px) {
+  div.mb-3 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .form-floating {
+    margin-left: 0;
+    margin-right: 0;
+  }
+} 
