@@ -45,6 +45,7 @@
           <tr class="item">
             <td>
               <%= f.text_field :order_number, class: 'form-control' %>
+              <div id="search-result"></div>
             </td>
             <td>
               <%= f.collection_select :color, Product.select(:color).distinct, :color, :color, {include_blank: "--"}, class: "form-control" %>
