@@ -44,8 +44,7 @@
         <%= fb.fields_for :orders do |f| %>
           <tr class="item">
             <td>
-              <%= f.text_field :order_number, class: 'form-control' %>
-              <div id="search-result"></div>
+              <%= f.collection_select :order_number, Product.select(:item_number).distinct, :item_number, :item_number, {include_blank: "--"}, class: "form-control" %>
             </td>
             <td>
               <%= f.collection_select :color, Product.select(:color).distinct, :color, :color, {include_blank: "--"}, class: "form-control" %>
