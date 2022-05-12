@@ -77,12 +77,6 @@ class SlipsController < ApplicationController
     @slips = Slip.search(params[:keyword])
   end
 
-  def inclimental_search
-    return nil if params[:keyword] == ""
-    order_number = Order.where(['order_number LIKE ?', "%#{params[:keyword]}%"] )
-    render json:{ keyword: order_number }
-  end
-
   private
 
   def slip_params
