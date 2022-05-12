@@ -10,8 +10,5 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
-    collection do
-      get 'inclimental_search'
-    end
   end
 end
