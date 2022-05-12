@@ -6,7 +6,6 @@
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
-require("../slip")
 
 import "bootstrap";
 import "../stylesheets/application.scss";
