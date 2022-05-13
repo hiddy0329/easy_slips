@@ -68,3 +68,5 @@ gem 'jquery-rails'
 gem'thinreports'
 
 gem 'rails-i18n'
+
+gem 'ransack'
