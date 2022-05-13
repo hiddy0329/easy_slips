@@ -74,7 +74,10 @@ class SlipsController < ApplicationController
   end
 
   def search
-    @slips = Slip.search(params[:keyword])
+    # ransackで検索用のオブジェクトを生成し、params[:q]でフォームから来たデータを受ける
+    @q = Slip.ransack(params[:q])
+    # resultで検索結果を取得し、インスタンス変数@slipsに代入
+    @slips = @q.result
   end
 
   private
