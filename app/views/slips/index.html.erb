@@ -1,14 +1,8 @@
 <h2 class="text-center bg-primary text-white">作成済み伝票一覧</h2>
 <div class="container">
-  <%= form_with(url: search_slips_path, local: true, method: :get, class: "d-flex justify-content-center") do |form| %>
-    <div col-auto>
-      <%= form.text_field :keyword, placeholder: "伝票を検索する", class: "form-control" %>
-    </div>
-    <div class="col-auto">
-      <%= form.submit "検索", class: "btn btn-primary" %>
-    </div>
-  <% end %>
-
+  <h3 class="text-center mt-3">
+    <%= link_to '商品検索へ', search_slips_path %>
+  </h3>
   <div class="row">
     <%= slip_lists(@slips) %>
   </div>
