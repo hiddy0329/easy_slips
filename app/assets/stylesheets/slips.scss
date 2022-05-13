@@ -23,6 +23,14 @@
   .card-link {
     font-size: 15px;
   }
+
+  .title {
+    font-size: 25px;
+  }
+
+  .search-category {
+    font-size: 15px;
+  }
 }
 
 @media (max-width: 599px) {
@@ -44,6 +52,14 @@
   }
 
   .card-link {
+    font-size: 10px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .search-category {
     font-size: 10px;
   }
 }
