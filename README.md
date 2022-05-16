@@ -7,6 +7,7 @@
 - 商品を事前に登録する
 - 取引先を事前に登録する
 - 伝票を作成し、PDF出力する
+- 作成した伝票を閲覧したり、検索したりする
 
 # URL
 [Easy Slips -Heroku](https://easyslips.herokuapp.com/)
