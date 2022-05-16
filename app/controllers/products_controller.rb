@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
 
     def product_collection_params
         params.require(:form_product_collection)
-        .permit(products_attributes: [:item_number, :name, :color, :price, :note, :availability])
+        .permit(products_attributes: [:item_number, :color, :note, :availability])
     end
 
 end
